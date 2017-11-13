@@ -1,0 +1,21 @@
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var path = require('path');
+var cors = require('cors');
+
+var port = 8000
+app.set('port', port);
+app.listen(app.get('port'), function() {
+  console.log('Listening on port: ', port)
+});
+
+
+app.use(bodyParser.json()); // allows you to retrieve data from the body of requests made to this server
+app.use(cors()); // sets up the headers to allow cross origin requests
+
+app.get('/', function(req, res) {
+	// this block will execute every time someone successfully navigates to the homepage. 
+	res.status(200)
+	res.end()
+})
